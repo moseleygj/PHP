@@ -1,0 +1,87 @@
+<html>
+<title>Address</title>
+<style type="text/css">
+.container{
+	height:auto;
+	width:400px;
+}
+.titleHead{
+	height:40px;
+	width:140px;
+	float:left;
+}
+.dataInput{
+	height:40px;
+	width:200px;
+	float:left;
+}
+form{width:400px;}
+</style>
+<body>
+
+<form method="POST" action="writeFile.php">
+<div class="container">
+
+<div class="titleHead">First Name:</div>
+<div class="dataInput"><input type="text" name="fname" id="fname" /></div>
+
+
+<div class="titleHead">Last Name:</div>
+<div class="dataInput"><input type="text" name="lname" id="lname"/></div>
+
+<div class="titleHead">Address:</div>
+<div class="dataInput"><input type="text" name="address" id="address"/></div>
+
+<div class="titleHead">City:</div>
+<div class="dataInput"><input type="text" name="city" id="city"/></div>
+
+<div class="titleHead">State:</div>
+<div class="dataInput"><input type="text" name="state" id="state"/></div>
+
+<div class="titleHead">Zip code:</div>
+<div class="dataInput"><input type="text" name="zip" id="zip" maxlength="5" size="5"/></div>
+
+<div class="titleHead">DOB:</div>
+<div class="dataInput"><input type="text" name="dob" id="dob"/></div>
+
+<div class="titleHead">Telephone:</div>
+<div class="dataInput"><input type="text" id ="tel" maxlength="10" name="tel" size="10"//></div>
+
+<div class="titleHead">E-Mail Address:</div>
+<div class="dataInput"><input type="text"  id="email" name="email"/></div>
+
+<div class="titleHead">Card Type:</div>
+<div class="dataInput">
+<select name="CCType">
+<Option  value="American Express">American Express</option>
+<Option  value="Visa">Visa</option>
+<Option  value="Master Card">Master Card</option>
+<Option  value="Discover">Discover</option>
+</select></div>
+
+<div class="titleHead">Credit Card #:</div>
+<div class="dataInput"><input type="text" name="ccNum" id="ccNum"/></div>
+
+
+<div class="titleHead">Expiration date: </div>
+<div class="dataInput"><input type="text" name="month" id="month" size="2" placeholder="MM"/>&nbsp/&nbsp<input type="text" name="month" id="year" size="2" placeholder="YY"/></div>
+
+
+<div class="titleHead">CVV #:</div>
+<div class="dataInput"><input type="text" name="CVV" size="3" style="margin-right:5px;"/><a href ="cvv.jpg" style="margin-right:5px;">What is this?<img src="cvv.jpg" height="24" width="24"><a/</div>
+
+
+<div class="titleHead"><input type="submit" value="Complete Registration!"/>
+</div>
+<div class="dataInput"></div>
+
+
+</div>
+
+
+
+
+
+</form>
+</body
+</html>
