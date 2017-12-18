@@ -1,17 +1,21 @@
 header{}
 body{background-color: yellow;}
-#password{}
-#username{
-
-
-
-
-}
-
 
 body{}
-input[name="username"]{color:green; background-color:red;}
-input[name="password"]{}
-input[name=""]{}
+input[type="text"]{color:red}
+input[name="userName"]
+{
+color:green; 
+background-color:red;
+margin:0 auto 0;
+display:block;
+text-align:center;
+}
+
+input[name="passWord"]
+{
+margin:0 auto 0;
+display:block;
+}
 img[src=""]{}
 #footer{}
