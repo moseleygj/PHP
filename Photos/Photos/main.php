@@ -1,6 +1,6 @@
 <html>
 <head>
-	<meta charset="UTF-8">
+<meta charset="UTF-8">
 <title></title>
 <style>
 body{
@@ -29,7 +29,7 @@ min-height:100%;
 	width:80%;
 	margin:;
 	float:left;
-	background:url('fzm-seamless-corkboard-texture-01-800x800.jpg')fixed;
+	background:url('Wallpapers/fzm-seamless-corkboard-texture-01-800x800.jpg')fixed;
 background-repeat: repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -46,15 +46,14 @@ background-repeat: repeat;
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   margin:10px 40px 30px 10px;
   float:left;
-
 }
+
 .pTitle{height:40px;width:100%:;margin:;}
 .pPhoto{height:150px;width:180px;margin:10px 10px 0px  10px;background-color:black;}
 .pTitle{font-size:26px;font-weight:bolder;text-align:center;}
 .pframe:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
-
 
 .folderList{height:22px;width:100%;color:#434343;font-family:"Times New Roman";font-size:14px;text-align: center;font-weight:bolder;line-height: 2;}
 .folderList:hover{height:22px;width:100%;color:white;font-family:"Times New Roman";font-size:14px;text-align: center;background:linear-gradient(#288FE0, #1B79E8);font-weight:bolder;line-height: 2;}
@@ -67,13 +66,37 @@ background-repeat: repeat;
 
 <div class="container">
 	<div class="leftFolderColumn">
-	<!-- Add link here -->
-<div class="folderList">Test folder UI</div>
-	</div>
+	<!-- Add folder links here -->
 
+	<!--<div class="folderList" onclick="alert('You clicked Me!')";>Test folder UI</div>-->
+	<?php
+if ($handle = opendir('.')) 
+{
+    while (false !== ($entry = readdir($handle))) 
+	{
+		if(is_dir($entry) == 1)
+		{
+      			 if($entry !== ".." && $entry !== ".")
+				{
+				echo "<div class=\"folderList\" onclick=\"alert('You clicked Me!')\";>$entry</div>";
+				}
+		}
+     		else
+		{
+		//do nothing
+		}
+       
+	}
+    closedir($handle);
+}
+?> 
+
+
+	</div> <!-- end of left column -->
 	<div class="rightPhotoColumn">
 		<!-- photo template  begin-->
 <?php
+//List only jpeg images
 foreach (glob("*.jpg") as $filename) {
 	echo "<div class=\"pframe\">";
 	echo "<a href=\"".$filename."\">";

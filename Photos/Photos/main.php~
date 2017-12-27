@@ -67,7 +67,6 @@ background-repeat: repeat;
 
 <div class="container">
 	<div class="leftFolderColumn">
-	<!-- Add link here -->
 <div class="folderList">Test folder UI</div>
 	</div>
 

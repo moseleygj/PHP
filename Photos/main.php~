@@ -29,7 +29,7 @@ min-height:100%;
 	width:80%;
 	margin:;
 	float:left;
-	background:url('fzm-seamless-corkboard-texture-01-800x800.jpg')fixed;
+	background:url('Wallpapers/fzm-seamless-corkboard-texture-01-800x800.jpg')fixed;
 background-repeat: repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
