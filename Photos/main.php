@@ -78,7 +78,7 @@ if ($handle = opendir('.'))
 		{
       			 if($entry !== ".." && $entry !== ".")
 				{
-				echo "<div class=\"folderList\" onclick=\"alert('You clicked Me:$entry!')\";>$entry</div>";
+				echo "<div class=\"folderList\" onclick=\"showPics($entry)\";>$entry</div>";
 //create click function to open folder
 				}
 		}
@@ -89,6 +89,33 @@ if ($handle = opendir('.'))
        
 	}
     closedir($handle);
+}
+
+
+
+function showPics($someDir)
+{
+if ($handle = opendir($someDir)) 
+{
+    while (false !== ($entry = readdir($handle))) 
+	{
+		if(is_dir($entry) == 1)
+		{
+      			 if($entry !== ".." && $entry !== ".")
+				{
+				echo "<div class=\"folderList\" onclick=\"showPics($entry)\";>$entry</div>";
+//create click function to open folder
+				}
+		}
+     		else
+		{
+		//do nothing
+		}
+       
+	}
+    closedir($handle);
+}
+
 }
 ?> 
 
