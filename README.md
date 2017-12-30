@@ -1,2 +1,2 @@
 # PHP
-just a misc. php file storage
+.PHP file storage
